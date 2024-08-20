@@ -8,7 +8,11 @@ const cookieParser = require("cookie-parser");
 const post = process.env.PORT || 5000;
 const cors = require("cors");
 
-const allowedOrigins = ["https://web-client-neon.vercel.app"];
+// Cấu hình allowedOrigins và CLIENT_URL dựa trên NODE_ENV
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? [process.env.CLIENT_URL]
+    : ["http://localhost:3000"]; // URL cho môi trường phát triển
 
 app.use(
   cors({
@@ -21,14 +25,6 @@ app.use(
     },
   })
 );
-
-//localhost
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL,
-//     methods: ["POST", "PUT", "GET", "DELETE"],
-//   })
-// );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
