@@ -29,9 +29,8 @@ const updateConfig = asyncHandler(async (req, res) => {
   });
 });
 
-const getConfig = asyncHandler(async (req, res) => {
-  const { cid } = req.params;
-  const response = await Config.findById(cid);
+const getConfigs = asyncHandler(async (req, res) => {
+  const response = await Config.find();
   res.status(200).json({
     success: response ? true : false,
     configs: response ? response : "Đã xảy ra lỗi",
@@ -41,5 +40,5 @@ const getConfig = asyncHandler(async (req, res) => {
 module.exports = {
   createConfig,
   updateConfig,
-  getConfig,
+  getConfigs,
 };

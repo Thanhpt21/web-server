@@ -5,7 +5,7 @@ const uploader = require("../config/cloudinary.config");
 const {
   createConfig,
   updateConfig,
-  getConfig,
+  getConfigs,
 } = require("../controllers/config");
 
 router.post("/", verifyAccessToken, isAdmin, createConfig);
@@ -24,6 +24,6 @@ router.put(
   ]),
   updateConfig
 );
-router.get("/:cid", getConfig);
+router.get("/", getConfigs);
 
 module.exports = router;
