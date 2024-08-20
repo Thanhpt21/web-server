@@ -22,6 +22,14 @@ app.use(
   })
 );
 
+//localhost
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL,
+//     methods: ["POST", "PUT", "GET", "DELETE"],
+//   })
+// );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
