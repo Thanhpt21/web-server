@@ -2,7 +2,6 @@ const Ship = require("../models/ship");
 const asyncHandler = require("express-async-handler");
 
 const createShip = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { province, price } = req.body;
   if (!province && !price) throw new Error("Missing input");
   const response = await Ship.create(req.body);

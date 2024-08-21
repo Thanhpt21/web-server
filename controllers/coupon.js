@@ -2,7 +2,6 @@ const Coupon = require("../models/coupon");
 const asyncHandler = require("express-async-handler");
 
 const createCoupon = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { name, discount, expiry, usageLimit, usedCount, minPrice } = req.body;
   if (!name || !discount || !expiry || !minPrice || usageLimit === undefined) {
     throw new Error("Missing input");
@@ -147,7 +146,6 @@ const getCoupon = asyncHandler(async (req, res) => {
 });
 
 const updateCoupon = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { cid } = req.params;
   const { name, discount, expiry, usageLimit, usedCount, minPrice } = req.body;
   if (

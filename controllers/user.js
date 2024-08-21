@@ -348,8 +348,6 @@ const updateCart = asyncHandler(async (req, res) => {
       el.color.toString() === color.toString()
   );
 
-  console.log("Already existing product in cart:", alreadyProduct);
-
   if (alreadyProduct) {
     const response = await User.updateOne(
       { cart: { $elemMatch: alreadyProduct } },
@@ -396,7 +394,6 @@ const updateCart = asyncHandler(async (req, res) => {
 });
 
 const removeProductCart = asyncHandler(async (req, res) => {
-  console.log(req.params);
   const { _id } = req.user;
   const { pid, color } = req.params;
 

@@ -80,7 +80,6 @@ const getBlogCategory = asyncHandler(async (req, res) => {
 });
 
 const updateBlogCategory = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { bcid } = req.params;
   const response = await BlogCategory.findByIdAndUpdate(bcid, req.body, {
     new: true,

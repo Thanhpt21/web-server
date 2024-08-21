@@ -8,7 +8,6 @@ const makeSKU = require("uniqid");
 const mongoose = require("mongoose");
 
 const createProduct = asyncHandler(async (req, res) => {
-  console.log("req.body", req.body);
   const {
     title,
     price,

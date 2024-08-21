@@ -2,7 +2,6 @@ const Config = require("../models/config");
 const asyncHandler = require("express-async-handler");
 
 const createConfig = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const response = await Config.create(req.body);
   res.status(200).json({
     success: response ? true : false,

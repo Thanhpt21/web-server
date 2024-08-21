@@ -4,7 +4,6 @@ const asyncHandler = require("express-async-handler");
 const mongoose = require("mongoose");
 
 const createBlog = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { title, description, category } = req.body;
   const images = req?.file?.path;
 
@@ -159,7 +158,6 @@ const getAllBlogs = asyncHandler(async (req, res) => {
 const getBlog = asyncHandler(async (req, res) => {
   const { bid } = req.params;
   const { _id } = req.user;
-  // console.log("req.user", req.user);
   const blog = await Blog.findById(bid);
 
   if (!blog) {
@@ -197,7 +195,6 @@ const deleteBlog = asyncHandler(async (req, res) => {
 const likeBlog = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   const { bid } = req.params;
-  console.log("bid", bid);
   if (!bid) throw new Error("Missing input");
 
   const blog = await Blog.findById(bid);

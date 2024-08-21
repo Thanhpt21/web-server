@@ -2,7 +2,6 @@ const Color = require("../models/color");
 const asyncHandler = require("express-async-handler");
 
 const createColor = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { title, code } = req.body;
   if (!title && !code) throw new Error("Missing input");
   const response = await Color.create(req.body);
