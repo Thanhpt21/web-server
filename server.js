@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 const post = process.env.PORT || 5000;
 const cors = require("cors");
 
-const allowedOrigins = ["https://web-client-neon.vercel.app"];
+const allowedOrigins = ["https://web-client-0bit.onrender.com"];
 
 app.use(
   cors({
